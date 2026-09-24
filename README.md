@@ -6,7 +6,7 @@ In the modern attention economy, persuasive digital algorithms and variable-rewa
 ---
 
 ## Dataset Source
-- **Kaggle Dataset Source**: [https://www.kaggle.com/datasets/placeholder-social-media-dopamine-productivity](https://www.kaggle.com/datasets/placeholder-social-media-dopamine-productivity)  
+- **Kaggle Dataset Source**: [Social Media, Dopamine, and Productivity Dataset](https://www.kaggle.com/datasets/manaswinsripatnala/social-media-dopamine-and-productivity-dataset)  
   *Local File:* `social_media_dopamine_productivity.csv` (300 clean participant records, 66 original columns).  
   *Schema Audit Note:* The original uploader inverted `productivity_decline_score` (which genuinely holds the categorical risk bands) and `severity_stage` (which holds trigger text with missingness). In this project, the target is formally verified and mapped to `productivity_risk_band`.
 
@@ -16,8 +16,8 @@ In the modern attention economy, persuasive digital algorithms and variable-rewa
 
 ### 1. Clone or Open the Repository
 ```bash
-git clone https://github.com/placeholder/DopaScore.git
-cd DopaScore
+git clone https://github.com/suhaniagarwal18/dopascore-productivity-risk-predictor.git
+cd dopascore-productivity-risk-predictor
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -36,6 +36,16 @@ cd DopaScore
 ```bash
 pip install -r requirements.txt
 ```
+
+**Installed Packages & Responsibilities:**
+- `pandas (>=2.2.0)`, `numpy (>=2.0.0)` — Data ingestion, cleaning, transformation, and array operations
+- `scikit-learn (>=1.5.0)` — Preprocessing pipelines (`ColumnTransformer`, `StandardScaler`, encoders) and classification models
+- `scipy (>=1.14.0)` — Scientific computing routines and statistical distributions
+- `matplotlib (>=3.9.0)`, `seaborn (>=0.13.0)` — Exploratory data analysis, heatmaps, and confusion matrix plots
+- `joblib (>=1.4.0)` — Serialization and persistence of the fitted model pipeline
+- `streamlit (>=1.38.0)` — Interactive web application UI, state management, and real-time inference
+- `python-docx (>=1.1.0)` — Programmatic generation and formatting of the project report
+- `nbformat (>=5.10.0)`, `nbclient (>=0.11.0)`, `ipykernel (>=6.29.0)` — Jupyter notebook execution, validation, and kernel runtime
 
 ---
 
@@ -67,14 +77,13 @@ streamlit run app.py
 
 Once started, the application will automatically open in your default browser at:
 - **Local URL:** `http://localhost:8501`
-- **Network URL:** `http://127.0.0.1:8501`
 
 Use the interactive sliders to adjust your daily digital consumption, focus metrics, and dopamine triggers to receive an instant productivity risk diagnosis with colored visual status badges, probability breakdowns, and personalized digital hygiene recommendations.
 
 ---
 
 ## Technologies Used
-- **Programming Language:** Python 3.13 / 3.11+
+- **Programming Language:** Python 3.11+
 - **Data Manipulation & Processing:** `pandas` (>=2.2.0), `numpy` (>=2.0.0), `scipy` (>=1.14.0)
 - **Machine Learning & Preprocessing:** `scikit-learn` (>=1.5.0) (`ColumnTransformer`, `StandardScaler`, `OrdinalEncoder`, `OneHotEncoder`, `LogisticRegression`, `RandomForestClassifier`, `GradientBoostingClassifier`)
 - **Model Persistence & Pipeline Serialization:** `joblib` (>=1.4.0)
@@ -86,7 +95,7 @@ Use the interactive sliders to adjust your daily digital consumption, focus metr
 
 ## Project Structure
 ```text
-DopaScore/
+dopascore-productivity-risk-predictor
 ├── app.py                                   # Standalone single-file Streamlit web application
 ├── dopascore_pipeline.joblib                # Serialized trained ColumnTransformer + Random Forest pipeline
 ├── README.md                                # Comprehensive project documentation & guide
@@ -94,4 +103,4 @@ DopaScore/
 ├── social_media_dopamine_productivity.csv   # Raw benchmark dataset (300 valid participant records)
 ├── Suhani_DopaScore.ipynb                   # End-to-end Jupyter analytics & modeling notebook
 └── Suhani_ProjectReport.docx                # Professional formal Word project report
-```\n
+```
